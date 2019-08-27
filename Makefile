@@ -1,19 +1,19 @@
 # Makefile for rabbitmqadmin Docker image
 
-TAG=nasqueron/rabbitmqadmin
-VERSION=3_6_0
+IMAGE=nasqueron/rabbitmqadmin
+TAG=3_6_0
 
 all: build
 
 rabbitmqadmin:
-	wget https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/rabbitmq_v${VERSION}/bin/rabbitmqadmin
+	wget https://raw.githubusercontent.com/rabbitmq/rabbitmq-management/${TAG}/bin/rabbitmqadmin
 	chmod +x rabbitmqadmin
 
 build: rabbitmqadmin
-	docker build -t ${TAG} .
+	docker build -t ${IMAGE}:${TAG} .
 
 test:
-	docker run -it --rm nasqueron/rabbitmqadmin help
+	docker run -it --rm ${IMAGE}:${TAG} help
 
 clean:
 	rm -f rabbitmqadmin
