@@ -1,7 +1,7 @@
 # Makefile for rabbitmqadmin Docker image
 
 IMAGE=nasqueron/rabbitmqadmin
-TAG=3_6_0
+TAG=v3.7.17
 
 all: build
 
